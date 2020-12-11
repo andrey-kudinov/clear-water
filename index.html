@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Чистая Вода</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="img/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#603cba" />
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="about">
+        <div class="about__logo">
+          <img
+            src="./img/svg/logo-ico.svg"
+            alt="Чистая вода"
+            class="img-about__logo"
+          />
+        </div>
+        <h1 class="about__logo-subtitle">Чистая Вода</h1>
+        <div class="about__logo-text">
+          Питьевая вода, предназначенная для ежедневного потребления, идеально
+          подходит для кулеров. Закажите доставку воды и мы привезем её на дом
+          или в офис.
+        </div>
+      </div>
+      <div class="in">
+        <div class="wrapper">
+          <h2 class="in__title">Заполните данные</h2>
+          <div class="in__user">
+            <div class="in__user-inputs">
+              <input
+                type="text"
+                class="input-in__user-name input"
+                placeholder="ФИО"
+              />
+              <input
+                type="tel"
+                class="input-in__user-name input"
+                placeholder="Телефон"
+              />
+              <input
+                type="mail"
+                class="input-in__user-name input"
+                placeholder="Почта"
+              />
+              <input
+                type="text"
+                class="input-in__user-name input"
+                placeholder="Адрес доставки"
+              />
+            </div>
+
+            <div class="in__user-check">
+              <label>
+                <input
+                  type="checkbox"
+                  class="input-in__user-check"
+                  id="input-in__user-check"
+                />
+                Я согласен
+                <span class="in__user-check-data"
+                  >на обработку персональных данных</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="in__water">
+            <h3 class="in__water-subtitle subtitle">Вода</h3>
+            <div class="in__water-wrapper">
+              <div class="in__water-button_1">
+                <button class="button-in__water-size button-size">
+                  <span class="btn-size">18,9 л</span>
+                  <span class="btn-number">1 шт.</span>
+                  <span class="btn-price">220 ₽</span>
+                  <div class="btn-circle_active"></div>
+                  <div class="btn-circle_passive"></div>
+                </button>
+                <div class="in__water-amount">
+                  <button class="button-in__water-amount">-</button>
+                  <span class="in__water-amount_number">0</span>
+                  <button class="button-in__water-amount">+</button>
+                </div>
+              </div>
+
+              <div class="in__water-button_2">
+                <button class="button-in__water-size button-size">
+                  <span class="btn-size">1,5 л</span>
+                  <span class="btn-number">6 шт.</span>
+                  <span class="btn-price">175 ₽</span>
+                  <div class="btn-circle_active"></div>
+                  <div class="btn-circle_passive"></div>
+                </button>
+                <div class="in__water-amount">
+                  <button class="button-in__water-amount">-</button>
+                  <span class="in__water-amount_number">0</span>
+                  <button class="button-in__water-amount">+</button>
+                </div>
+              </div>
+
+              <div class="in__water-button_3">
+                <button class="button-in__water-size button-size">
+                  <span class="btn-size">0,5 л</span>
+                  <span class="btn-number">12 шт.</span>
+                  <span class="btn-price">270 ₽</span>
+                  <div class="btn-circle_active"></div>
+                  <div class="btn-circle_passive"></div>
+                </button>
+                <div class="in__water-amount">
+                  <button class="button-in__water-amount">-</button>
+                  <span class="in__water-amount_number">0</span>
+                  <button class="button-in__water-amount">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="in__time"></div>
+
+          <div class="in__sum">
+            <div class="in__sum-wrapper">
+              <h3 class="in__sum-subtitle subtitle">Итого</h3>
+              <div class="in__sum-total">
+                <span class="in__sum-total_ruble">0</span>
+                <span class="in__sum-total_penny">,00 ₽</span>
+
+              </div>
+            </div>
+            <button class="button-in__sum-order">Заказать воду</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
