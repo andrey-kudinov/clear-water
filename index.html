@@ -36,18 +36,20 @@
   <body>
     <div class="main">
       <div class="about">
-        <div class="about__logo">
-          <img
-            src="./img/svg/logo-ico.svg"
-            alt="Чистая вода"
-            class="img-about__logo"
-          />
-        </div>
-        <h1 class="about__logo-subtitle">Чистая Вода</h1>
-        <div class="about__logo-text">
-          Питьевая вода, предназначенная для ежедневного потребления, идеально
-          подходит для кулеров. Закажите доставку воды и мы привезем её на дом
-          или в офис.
+        <div class="about__wrapper">
+          <div class="about__logo">
+            <img
+              src="./img/svg/logo-ico.svg"
+              alt="Чистая вода"
+              class="img-about__logo"
+            />
+          </div>
+          <h1 class="about__logo-subtitle">Чистая Вода</h1>
+          <div class="about__logo-text">
+            Питьевая вода, предназначенная для ежедневного потребления, идеально
+            подходит для кулеров. Закажите доставку воды и мы привезем её на дом
+            или в офис.
+          </div>
         </div>
       </div>
       <div class="in">
@@ -55,26 +57,44 @@
           <h2 class="in__title">Заполните данные</h2>
           <div class="in__user">
             <div class="in__user-inputs">
-              <input
-                type="text"
-                class="input-in__user-name input"
-                placeholder="ФИО"
-              />
-              <input
-                type="tel"
-                class="input-in__user-name input"
-                placeholder="Телефон"
-              />
-              <input
-                type="mail"
-                class="input-in__user-name input"
-                placeholder="Почта"
-              />
-              <input
-                type="text"
-                class="input-in__user-name input"
-                placeholder="Адрес доставки"
-              />
+              <div class="in__user-inputs_clm1">
+                <div class="in__user-input">
+                  <input
+                    type="text"
+                    class="input-in__user-name input"
+                    placeholder="ФИО"
+                  />
+                  <span class="input-user-false">Неверно заполненное поле</span>
+                </div>
+                <div class="in__user-input">
+                  <input
+                    type="tel"
+                    class="input-in__user-tel input"
+                    placeholder="Телефон"
+                  />
+                  <span class="input-user-false">Неверно заполненное поле</span>
+                </div>
+              </div>
+
+              <div class="in__user-inputs_clm2">
+                <div class="in__user-input">
+                  <input
+                    type="mail"
+                    class="input-in__user-mail input"
+                    placeholder="Почта"
+                  />
+                  <span class="input-user-false">Неверно заполненное поле</span>
+                </div>
+
+                <div class="in__user-input">
+                  <input
+                    type="text"
+                    class="input-in__user-loc input"
+                    placeholder="Адрес доставки"
+                  />
+                  <span class="input-user-false">Неверно заполненное поле</span>
+                </div>
+              </div>
             </div>
 
             <div class="in__user-check">
@@ -92,57 +112,133 @@
             </div>
           </div>
 
-          <div class="in__water">
-            <h3 class="in__water-subtitle subtitle">Вода</h3>
-            <div class="in__water-wrapper">
-              <div class="in__water-button_1">
-                <button class="button-in__water-size button-size">
-                  <span class="btn-size">18,9 л</span>
-                  <span class="btn-number">1 шт.</span>
-                  <span class="btn-price">220 ₽</span>
-                  <div class="btn-circle_active"></div>
-                  <div class="btn-circle_passive"></div>
-                </button>
-                <div class="in__water-amount">
-                  <button class="button-in__water-amount">-</button>
-                  <span class="in__water-amount_number">0</span>
-                  <button class="button-in__water-amount">+</button>
+          <div class="middle__wrapper">
+            <div class="in__water">
+              <h3 class="in__water-subtitle subtitle">Вода</h3>
+              <div class="in__water-wrapper">
+                <div class="in__water-buttons">
+                  <div class="wrapper-button-in__water-size">
+                    <button class="button-in__water-size">
+                      <span class="btn-size">18,9 л</span>
+                      <span class="btn-number">1 шт.</span>
+                      <span class="btn-price">220 ₽</span>
+                      <div class="btn-circle_active"></div>
+                      <div class="btn-circle_passive"></div>
+                    </button>
+                    <div class="in__water-amount">
+                      <button class="button-in__water-amount_minus">-</button>
+                      <span class="in__water-amount_number">0</span>
+                      <button class="button-in__water-amount_plus">+</button>
+                    </div>
+                  </div>
+
+                  <div class="wrapper-button-in__water-size">
+                    <button class="button-in__water-size">
+                      <span class="btn-size">1,5 л</span>
+                      <span class="btn-number">6 шт.</span>
+                      <span class="btn-price">175 ₽</span>
+                      <div class="btn-circle_active"></div>
+                      <div class="btn-circle_passive"></div>
+                    </button>
+                    <div class="in__water-amount">
+                      <button class="button-in__water-amount_minus">-</button>
+                      <span class="in__water-amount_number">0</span>
+                      <button class="button-in__water-amount_plus">+</button>
+                    </div>
+                  </div>
+
+                  <div class="wrapper-button-in__water-size">
+                    <button class="button-in__water-size">
+                      <span class="btn-size">0,5 л</span>
+                      <span class="btn-number">12 шт.</span>
+                      <span class="btn-price">270 ₽</span>
+                      <div class="btn-circle_active"></div>
+                      <div class="btn-circle_passive"></div>
+                    </button>
+                    <div class="in__water-amount">
+                      <button class="button-in__water-amount_minus">-</button>
+                      <span class="in__water-amount_number">0</span>
+                      <button class="button-in__water-amount_plus">+</button>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="in__water-button_2">
-                <button class="button-in__water-size button-size">
-                  <span class="btn-size">1,5 л</span>
-                  <span class="btn-number">6 шт.</span>
-                  <span class="btn-price">175 ₽</span>
-                  <div class="btn-circle_active"></div>
-                  <div class="btn-circle_passive"></div>
-                </button>
-                <div class="in__water-amount">
-                  <button class="button-in__water-amount">-</button>
-                  <span class="in__water-amount_number">0</span>
-                  <button class="button-in__water-amount">+</button>
+            <div class="in__time">
+              <h3 class="in__time-subtitle subtitle">Дата и время доставки</h3>
+              <div class="in__time-wrapper">
+                <div class="in__time-day">
+                  <h4 class="in__time-day_subtitle">ДЕНЬ</h4>
+                  <div class="in__time-day_wrapper">
+                    <button class="button-in__time-day_before">
+                      <span class="button-in__time-day_sim"><</span>
+                    </button>
+                    <button
+                      class="button-in__time-day_btn1 button-in__time-day"
+                    >
+                      <span class="button-in__time-day_number">11</span>
+                      <span class="button-in__time-day_week">вт</span>
+                    </button>
+                    <button
+                      class="button-in__time-day_btn2 button-in__time-day"
+                    >
+                      <span class="button-in__time-day_number">12</span>
+                      <span class="button-in__time-day_week">ср</span>
+                    </button>
+                    <button
+                      class="button-in__time-day_btn3 button-in__time-day"
+                    >
+                      <span class="button-in__time-day_number">13</span>
+                      <span class="button-in__time-day_week">чт</span>
+                    </button>
+                    <button
+                      class="button-in__time-day_btn4 button-in__time-day"
+                    >
+                      <span class="button-in__time-day_number">14</span>
+                      <span class="button-in__time-day_week">пт</span>
+                    </button>
+                    <button
+                      class="button-in__time-day_btn5 button-in__time-day"
+                    >
+                      <span class="button-in__time-day_number">15</span>
+                      <span class="button-in__time-day_week">сб</span>
+                    </button>
+                    <button
+                      class="button-in__time-day_btn6 button-in__time-day"
+                    >
+                      <span class="button-in__time-day_number">16</span>
+                      <span class="button-in__time-day_week">вс</span>
+                    </button>
+                    <button class="button-in__time-day_next">
+                      <span class="button-in__time-day_sim">></span>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              <div class="in__water-button_3">
-                <button class="button-in__water-size button-size">
-                  <span class="btn-size">0,5 л</span>
-                  <span class="btn-number">12 шт.</span>
-                  <span class="btn-price">270 ₽</span>
-                  <div class="btn-circle_active"></div>
-                  <div class="btn-circle_passive"></div>
-                </button>
-                <div class="in__water-amount">
-                  <button class="button-in__water-amount">-</button>
-                  <span class="in__water-amount_number">0</span>
-                  <button class="button-in__water-amount">+</button>
+                <div class="in__time-time">
+                  <h4 class="in__time-time_subtitle">ВРЕМЯ</h4>
+                  <div class="in__time-time_wrapper">
+                    <button
+                      class="button-in__time-time_btn1 button-in__time-time"
+                    >
+                      10:00 - 11:00
+                    </button>
+                    <button
+                      class="button-in__time-time_btn2 button-in__time-time"
+                    >
+                      12:00 - 13:00
+                    </button>
+                    <button
+                      class="button-in__time-time_btn3 button-in__time-time"
+                    >
+                      15:00 - 16:00
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="in__time"></div>
 
           <div class="in__sum">
             <div class="in__sum-wrapper">
@@ -150,7 +246,6 @@
               <div class="in__sum-total">
                 <span class="in__sum-total_ruble">0</span>
                 <span class="in__sum-total_penny">,00 ₽</span>
-
               </div>
             </div>
             <button class="button-in__sum-order">Заказать воду</button>
