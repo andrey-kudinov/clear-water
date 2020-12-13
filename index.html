@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="main">
+    <div class="page">
       <div class="about">
         <div class="about__wrapper">
           <div class="about__logo">
@@ -52,70 +52,70 @@
           </div>
         </div>
       </div>
-      <div class="in">
+      <div class="main">
         <div class="wrapper">
-          <h2 class="in__title">Заполните данные</h2>
-          <div class="in__user">
-            <div class="in__user-inputs">
-              <div class="in__user-inputs_clm1">
-                <div class="in__user-input">
-                  <input
-                    type="text"
-                    class="input-in__user-name input"
-                    placeholder="ФИО"
-                  />
-                  <span class="input-user-false">Неверно заполненное поле</span>
+          <div class="in">
+            <h2 class="in__title title">Заполните данные</h2>
+            <div class="in__user">
+              <div class="in__user-inputs">
+                <div class="in__user-inputs_clm1">
+                  <div class="in__user-input">
+                    <input
+                      type="text"
+                      class="input-in__user-name input"
+                      placeholder="ФИО"
+                    />
+                    <span class="input-user-false">Неверно заполненное поле</span>
+                  </div>
+                  <div class="in__user-input">
+                    <input
+                      type="tel"
+                      class="input-in__user-tel input"
+                      placeholder="Телефон"
+                    />
+                    <span class="input-user-false">Неверно заполненное поле</span>
+                  </div>
                 </div>
-                <div class="in__user-input">
-                  <input
-                    type="tel"
-                    class="input-in__user-tel input"
-                    placeholder="Телефон"
-                  />
-                  <span class="input-user-false">Неверно заполненное поле</span>
+  
+                <div class="in__user-inputs_clm2">
+                  <div class="in__user-input">
+                    <input
+                      type="mail"
+                      class="input-in__user-mail input"
+                      placeholder="Почта"
+                    />
+                    <span class="input-user-false">Неверно заполненное поле</span>
+                  </div>
+  
+                  <div class="in__user-input">
+                    <input
+                      type="text"
+                      class="input-in__user-loc input"
+                      placeholder="Адрес доставки"
+                    />
+                    <span class="input-user-false">Неверно заполненное поле</span>
+                  </div>
                 </div>
               </div>
-
-              <div class="in__user-inputs_clm2">
-                <div class="in__user-input">
+  
+              <div class="in__user-check">
+                <label>
                   <input
-                    type="mail"
-                    class="input-in__user-mail input"
-                    placeholder="Почта"
+                    type="checkbox"
+                    class="input-in__user-check"
+                    id="input-in__user-check"
                   />
-                  <span class="input-user-false">Неверно заполненное поле</span>
-                </div>
-
-                <div class="in__user-input">
-                  <input
-                    type="text"
-                    class="input-in__user-loc input"
-                    placeholder="Адрес доставки"
-                  />
-                  <span class="input-user-false">Неверно заполненное поле</span>
-                </div>
+                  Я согласен
+                  <span class="in__user-check-data"
+                    >на обработку персональных данных</span
+                  >
+                </label>
               </div>
             </div>
-
-            <div class="in__user-check">
-              <label>
-                <input
-                  type="checkbox"
-                  class="input-in__user-check"
-                  id="input-in__user-check"
-                />
-                Я согласен
-                <span class="in__user-check-data"
-                  >на обработку персональных данных</span
-                >
-              </label>
-            </div>
-          </div>
-
-          <div class="middle__wrapper">
-            <div class="in__water">
-              <h3 class="in__water-subtitle subtitle">Вода</h3>
-              <div class="in__water-wrapper">
+  
+            <div class="middle__wrapper">
+              <div class="in__water">
+                <h3 class="in__water-subtitle subtitle">Вода</h3>
                 <div class="in__water-buttons">
                   <div class="wrapper-button-in__water-size">
                     <button class="button-in__water-size">
@@ -131,7 +131,7 @@
                       <button class="button-in__water-amount_plus">+</button>
                     </div>
                   </div>
-
+  
                   <div class="wrapper-button-in__water-size">
                     <button class="button-in__water-size">
                       <span class="btn-size">1,5 л</span>
@@ -146,7 +146,7 @@
                       <button class="button-in__water-amount_plus">+</button>
                     </div>
                   </div>
-
+  
                   <div class="wrapper-button-in__water-size">
                     <button class="button-in__water-size">
                       <span class="btn-size">0,5 л</span>
@@ -163,84 +163,120 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="in__time">
-              <h3 class="in__time-subtitle subtitle">Дата и время доставки</h3>
-              <div class="in__time-wrapper">
-                <div class="in__time-day">
-                  <h4 class="in__time-day_subtitle">ДЕНЬ</h4>
-                  <div class="in__time-day_wrapper">
-                    <button class="button-in__time-day_before">
-                      <span class="button-in__time-day_sim"><</span>
-                    </button>
-                    <button
-                      class="button-in__time-day_btn1 button-in__time-day"
-                    >
-                      <span class="button-in__time-day_number">11</span>
-                      <span class="button-in__time-day_week">вт</span>
-                    </button>
-                    <button
-                      class="button-in__time-day_btn2 button-in__time-day"
-                    >
-                      <span class="button-in__time-day_number">12</span>
-                      <span class="button-in__time-day_week">ср</span>
-                    </button>
-                    <button
-                      class="button-in__time-day_btn3 button-in__time-day"
-                    >
-                      <span class="button-in__time-day_number">13</span>
-                      <span class="button-in__time-day_week">чт</span>
-                    </button>
-                    <button
-                      class="button-in__time-day_btn4 button-in__time-day"
-                    >
-                      <span class="button-in__time-day_number">14</span>
-                      <span class="button-in__time-day_week">пт</span>
-                    </button>
-                    <button
-                      class="button-in__time-day_btn5 button-in__time-day"
-                    >
-                      <span class="button-in__time-day_number">15</span>
-                      <span class="button-in__time-day_week">сб</span>
-                    </button>
-                    <button
-                      class="button-in__time-day_btn6 button-in__time-day"
-                    >
-                      <span class="button-in__time-day_number">16</span>
-                      <span class="button-in__time-day_week">вс</span>
-                    </button>
-                    <button class="button-in__time-day_next">
-                      <span class="button-in__time-day_sim">></span>
-                    </button>
+  
+              <div class="in__time">
+                <h3 class="in__time-subtitle subtitle">Дата и время доставки</h3>
+                <div class="in__time-wrapper">
+                  <div class="in__time-day">
+                    <h4 class="in__time-day_subtitle">ДЕНЬ</h4>
+                    <div class="in__time-day_wrapper">
+                      <button class="button-in__time-day_before">
+                        <span class="button-in__time-day_sim"><</span>
+                      </button>
+                      <button
+                        class="button-in__time-day_btn1 button-in__time-day"
+                      >
+                        <span class="button-in__time-day_number">11</span>
+                        <span class="button-in__time-day_week">вт</span>
+                      </button>
+                      <button
+                        class="button-in__time-day_btn2 button-in__time-day"
+                      >
+                        <span class="button-in__time-day_number">12</span>
+                        <span class="button-in__time-day_week">ср</span>
+                      </button>
+                      <button
+                        class="button-in__time-day_btn3 button-in__time-day"
+                      >
+                        <span class="button-in__time-day_number">13</span>
+                        <span class="button-in__time-day_week">чт</span>
+                      </button>
+                      <button
+                        class="button-in__time-day_btn4 button-in__time-day"
+                      >
+                        <span class="button-in__time-day_number">14</span>
+                        <span class="button-in__time-day_week">пт</span>
+                      </button>
+                      <button
+                        class="button-in__time-day_btn5 button-in__time-day"
+                      >
+                        <span class="button-in__time-day_number">15</span>
+                        <span class="button-in__time-day_week">сб</span>
+                      </button>
+                      <button
+                        class="button-in__time-day_btn6 button-in__time-day"
+                      >
+                        <span class="button-in__time-day_number">16</span>
+                        <span class="button-in__time-day_week">вс</span>
+                      </button>
+                      <button class="button-in__time-day_next">
+                        <span class="button-in__time-day_sim">></span>
+                      </button>
+                    </div>
                   </div>
-                </div>
-
-                <div class="in__time-time">
-                  <h4 class="in__time-time_subtitle">ВРЕМЯ</h4>
-                  <div class="in__time-time_wrapper-weekdays">
-                    <button class="button-in__time-time">10:00 - 11:00</button>
-                    <button class="button-in__time-time">12:00 - 13:00</button>
-                    <button class="button-in__time-time">15:00 - 16:00</button>
-                  </div>
-                  <div class="in__time-time_wrapper-weekends">
-                    <button class="button-in__time-time">12:00 - 13:00</button>
-                    <button class="button-in__time-time">15:00 - 16:00</button>
+  
+                  <div class="in__time-time">
+                    <h4 class="in__time-time_subtitle">ВРЕМЯ</h4>
+                    <div class="in__time-time_wrapper-weekdays">
+                      <button class="button-in__time-time">10:00 - 11:00</button>
+                      <button class="button-in__time-time">12:00 - 13:00</button>
+                      <button class="button-in__time-time">15:00 - 16:00</button>
+                    </div>
+                    <div class="in__time-time_wrapper-weekends">
+                      <button class="button-in__time-time">12:00 - 13:00</button>
+                      <button class="button-in__time-time">15:00 - 16:00</button>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+  
+            <div class="in__sum">
+              <div class="in__sum-wrapper">
+                <h3 class="in__sum-subtitle subtitle">Итого</h3>
+                <div class="in__sum-total">
+                  <span class="in__sum-total_ruble">0</span>
+                  <span class="in__sum-total_penny">,00 ₽</span>
+                </div>
+              </div>
+              <button class="button-in__sum-order button">Заказать воду</button>
             </div>
           </div>
 
-          <div class="in__sum">
-            <div class="in__sum-wrapper">
-              <h3 class="in__sum-subtitle subtitle">Итого</h3>
-              <div class="in__sum-total">
-                <span class="in__sum-total_ruble">0</span>
-                <span class="in__sum-total_penny">,00 ₽</span>
+          <div class="out">
+            <h2 class="out__title title">Заказ оформлен</h2>
+            <div class="out__order">
+              <div class="out__order-items">
+                <div class="out__order-subtitles">
+                  <div class="out__order-subtitle">Бутыль 18,9 л</div>
+                  <div class="out__order-subtitle">Бутыль 1,5 л</div>
+                  <div class="out__order-subtitle">Бутыль 0,5 л</div>
+                  <div class="out__order-subtitle"></div>
+                  <div class="out__order-subtitle">Адрес доставки</div>
+                  <div class="out__order-subtitle">Телефон</div>
+                </div>
+
+                <div class="out__order-values">
+                  <div class="out__order-value"></div>
+                  <div class="out__order-value"></div>
+                  <div class="out__order-value"></div>
+                  <div class="out__order-value"></div>
+                  <div class="out__order-value"></div>
+                  <div class="out__order-value"></div>
+                </div>
               </div>
+
+              <div class="in__sum-wrapper">
+                <h3 class="in__sum-subtitle subtitle">Итого</h3>
+                <div class="in__sum-total">
+                  <span class="in__sum-total_ruble">0</span>
+                  <span class="in__sum-total_penny">,00 ₽</span>
+                </div>
+              </div>
+
+              <div class="out__desc">Ваш заказ <span class="out_desc-num">№221</span> успешно оформлен. В ближайшее время по указанному телефону с Вами свяжется наш менеджер.</div>
+              <button class="button-out__new button" onClick="window.location.reload()">Новый заказ</button>
             </div>
-            <button class="button-in__sum-order">Заказать воду</button>
           </div>
         </div>
       </div>

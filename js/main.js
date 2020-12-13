@@ -210,11 +210,13 @@ function displaySize(number) {
         console.log("ошибка в displaySize");
     }
     console.log(`кнопка ${number} выбора объема заказа воды - passive`);
+    sum();
   } else {
     sizeActive[number].style.display = "block";
     sizePassive[number].style.display = "none";
     amountDisplay[number].style.display = "block";
     console.log(`кнопка ${number} выбора объема заказа воды - active`);
+    sum();
   }
 }
 
@@ -230,32 +232,33 @@ btnSize[2].onclick = function () {
   displaySize(2);
 };
 
-// подсчет итого
-totalDisplay = document.querySelector(".in__sum-total_ruble");
-
-function sum() {
-  total = 220 * amountNumFirst + 175 * amountNumSecond + 270 * amountNumThird;
-  totalDisplay.textContent = `${total}`;
-}
-
 // выбор временнного интервала
 const btnTime = document.querySelectorAll(".button-in__time-time");
+let validTimeBln;
+let time;
 
 function displayTime(number) {
   if (btnTime[number].classList.contains("button-in__time-time_active")) {
     btnTime[number].classList.remove("button-in__time-time_active");
     console.log(`кнопка ${number} выбора временнного интервала - passive`);
+    validTimeBln = false;
+    validBtnOrder();
   } else {
     disableTimeAll();
     btnTime[number].classList.add("button-in__time-time_active");
     console.log(`кнопка ${number} выбора временнного интервала - active`);
+    validTimeBln = true;
+    time = btnTime[number].textContent;
+    validBtnOrder();
   }
 }
 
 function disableTimeAll() {
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < 5; i++) {
     btnTime[i].classList.remove("button-in__time-time_active");
   }
+  validTimeBln = false;
+  validBtnOrder();
 }
 
 btnTime[0].onclick = function () {
@@ -270,6 +273,14 @@ btnTime[2].onclick = function () {
   displayTime(2);
 };
 
+btnTime[3].onclick = function () {
+  displayTime(3);
+};
+
+btnTime[4].onclick = function () {
+  displayTime(4);
+};
+
 // заполнение кнопок с днями
 const displayDate = document.querySelectorAll(".button-in__time-day_number");
 const displayWeek = document.querySelectorAll(".button-in__time-day_week");
@@ -279,6 +290,24 @@ let dateNow = new Date();
 function displayWeekDay(date) {
   let days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
   return days[date.getDay()];
+}
+
+function displayMonth(date) {
+  let months = [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
+  ];
+  return months[date.getMonth()];
 }
 
 function displayDateWeek(number) {
@@ -314,7 +343,7 @@ btnDayNext.onclick = function () {
   if (btnDay[numBtnDay].classList.contains("button-in__time-day_active")) {
     if (numBtnDay == 0) {
       disableDayAll();
-      disableTimeAll()
+      disableTimeAll();
     } else {
       displayDay(numBtnDay - 1);
     }
@@ -338,7 +367,7 @@ btnDayBefore.onclick = function () {
     if (btnDay[numBtnDay].classList.contains("button-in__time-day_active")) {
       if (numBtnDay == 5) {
         disableDayAll();
-        disableTimeAll()
+        disableTimeAll();
       } else {
         displayDay(numBtnDay + 1);
       }
@@ -351,12 +380,17 @@ btnDayBefore.onclick = function () {
 // выбор кнопок с днями
 const btnDay = document.querySelectorAll(".button-in__time-day");
 let numBtnDay = 0;
+let day;
+let month;
 let dayOfWeek;
+let validDayBln;
 
 function displayDay(number) {
   if (btnDay[number].classList.contains("button-in__time-day_active")) {
     btnDay[number].classList.remove("button-in__time-day_active");
     console.log(`кнопка ${number} выбора дня - passive`);
+    validDayBln = false;
+    validBtnOrder();
   } else {
     disableDayAll();
     btnDay[number].classList.add("button-in__time-day_active");
@@ -366,9 +400,14 @@ function displayDay(number) {
     console.log(
       `число - ${dateNow.getDate()}, день недели - ${displayWeekDay(dateNow)}`
     );
+    day = dateNow.getDate();
+    month = displayMonth(dateNow);
     dayOfWeek = displayWeekDay(dateNow);
+    console.log(`число - ${day} ${month}, день недели - ${dayOfWeek}`);
     dateNow.setDate(dateNow.getDate() - number);
     changeTime();
+    validDayBln = true;
+    validBtnOrder();
   }
 }
 
@@ -376,6 +415,8 @@ function disableDayAll() {
   for (i = 0; i < 6; i++) {
     btnDay[i].classList.remove("button-in__time-day_active");
   }
+  validDayBln = false;
+  validBtnOrder();
 }
 
 btnDay[0].onclick = function () {
@@ -416,4 +457,72 @@ function changeTime() {
   }
 }
 
-//
+// подсчет итого
+totalDisplay = document.querySelectorAll(".in__sum-total_ruble");
+let validTotalBln;
+
+function sum() {
+  total = 220 * amountNumFirst + 175 * amountNumSecond + 270 * amountNumThird;
+  totalDisplay[0].textContent = `${total}`;
+  totalDisplay[1].textContent = `${total}`;
+  if (total > 0) {
+    validTotalBln = true;
+  } else {
+    validTotalBln = false;
+  }
+  validBtnOrder();
+}
+
+// проверка кнопки Заказать
+function validBtnOrder() {
+  if (
+    // validNameBln == true &&
+    // validMailBln == true &&
+    // validTelBln == true &&
+    // validDayBln == true &&
+    validTimeBln == true &&
+    validTotalBln == true
+  ) {
+    console.log("кнопку можно активировать");
+  } else {
+    console.log("кнопку НЕЛЬЗЯ активировать");
+  }
+}
+
+// переход
+const btnOrder = document.querySelector(".button-in__sum-order");
+const pageIn = document.querySelector(".in");
+const pageOut = document.querySelector(".out");
+
+btnOrder.onclick = function () {
+  pageIn.style.display = "none";
+  pageOut.style.display = "block";
+  displayOrder();
+};
+
+// вывод заказа
+const orderSubtitle = document.querySelectorAll(".out__order-subtitle");
+const orderValue = document.querySelectorAll(".out__order-value");
+
+function displayOrder() {
+  if (amountNumFirst == 0) {
+    orderSubtitle[0].style.display = "none";
+    orderValue[0].style.display = "none";
+  }
+  if (amountNumSecond == 0) {
+    orderSubtitle[1].style.display = "none";
+    orderValue[1].style.display = "none";
+  }
+  if (amountNumThird == 0) {
+    orderSubtitle[2].style.display = "none";
+    orderValue[2].style.display = "none";
+  }
+
+  orderSubtitle[3].textContent = `${day} ${month}`;
+  orderValue[0].textContent = `${amountNumFirst} шт.`;
+  orderValue[1].textContent = `${amountNumSecond * 6} шт.`;
+  orderValue[2].textContent = `${amountNumThird * 12} шт.`;
+  orderValue[3].textContent = `${time}`;
+  orderValue[4].textContent = `${input[3].value}`;
+  orderValue[5].textContent = `${input[1].value}`;
+}
