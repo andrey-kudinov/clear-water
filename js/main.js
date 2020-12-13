@@ -86,27 +86,6 @@ input[3].onchange = function () {
   validLoc();
 };
 
-// проверка кнопки
-function validBtnOrder() {
-  if (
-    validNameBln == true &&
-    validMailBln == true &&
-    validTelBln == true &&
-    validLocBln == true
-  ) {
-    // document.querySelector(".button-user__send").disabled = false;
-    // document.querySelector(".out__name").textContent = userName.value;
-    // document.querySelector(".out__number").textContent = `№${getRandomInt(
-    //   9999
-    // )}`;
-    // document.querySelector(".out__mail-user").textContent = userMail.value;
-    // document.querySelector(".out__phone-user").textContent =
-    //   "+7 (999) 000 - 11 - 22";
-  } else {
-    // document.querySelector(".button-user__send").disabled = true;
-  }
-}
-
 // маска телефона
 window.addEventListener("DOMContentLoaded", function () {
   function setCursorPosition(pos, elem) {
@@ -154,44 +133,50 @@ btnPlus[0].onclick = function () {
   amountNumFirst++;
   amountNum[0].textContent = `${amountNumFirst}`;
   console.log(`количество 18,9 л - ${amountNumFirst} штук`);
-  sum()
+  sum();
 };
 
 btnMinus[0].onclick = function () {
   amountNumFirst--;
-  if (amountNumFirst < 0) {amountNumFirst = 0}
+  if (amountNumFirst < 0) {
+    amountNumFirst = 0;
+  }
   amountNum[0].textContent = `${amountNumFirst}`;
   console.log(`количество 18,9 л - ${amountNumFirst} штук`);
-  sum()
+  sum();
 };
 
 btnPlus[1].onclick = function () {
   amountNumSecond++;
   amountNum[1].textContent = `${amountNumSecond}`;
   console.log(`количество 1,5 л - ${amountNumSecond} штук`);
-  sum()
+  sum();
 };
 
 btnMinus[1].onclick = function () {
   amountNumSecond--;
-  if (amountNumSecond < 0) {amountNumSecond = 0}
+  if (amountNumSecond < 0) {
+    amountNumSecond = 0;
+  }
   amountNum[1].textContent = `${amountNumSecond}`;
   console.log(`количество 1,5 л - ${amountNumSecond} штук`);
-  sum()
+  sum();
 };
 btnPlus[2].onclick = function () {
   amountNumThird++;
   amountNum[2].textContent = `${amountNumThird}`;
   console.log(`количество 0,5 л - ${amountNumThird} штук`);
-  sum()
+  sum();
 };
 
 btnMinus[2].onclick = function () {
   amountNumThird--;
-  if (amountNumThird < 0) {amountNumThird = 0}
+  if (amountNumThird < 0) {
+    amountNumThird = 0;
+  }
   amountNum[2].textContent = `${amountNumThird}`;
   console.log(`количество 0,5 л - ${amountNumThird} штук`);
-  sum()
+  sum();
 };
 
 // переключение состояний кнопок объема воды
@@ -200,18 +185,36 @@ const sizeActive = document.querySelectorAll(".btn-circle_active");
 const sizePassive = document.querySelectorAll(".btn-circle_passive");
 const amountDisplay = document.querySelectorAll(".in__water-amount");
 
-
 function displaySize(number) {
   if (sizePassive[number].style.display == "none") {
     sizeActive[number].style.display = "none";
     sizePassive[number].style.display = "block";
     amountDisplay[number].style.display = "none";
-    console.log(`кнопка ${number} - passive`);
+    switch (number) {
+      case 0:
+        amountNumFirst = 0;
+        amountNum[0].textContent = `${amountNumFirst}`;
+        sum();
+        break;
+      case 1:
+        amountNumSecond = 0;
+        amountNum[1].textContent = `${amountNumSecond}`;
+        sum();
+        break;
+      case 2:
+        amountNumThird = 0;
+        amountNum[2].textContent = `${amountNumThird}`;
+        sum();
+        break;
+      default:
+        console.log("ошибка в displaySize");
+    }
+    console.log(`кнопка ${number} выбора объема заказа воды - passive`);
   } else {
     sizeActive[number].style.display = "block";
     sizePassive[number].style.display = "none";
     amountDisplay[number].style.display = "block";
-    console.log(`кнопка ${number} - active`);
+    console.log(`кнопка ${number} выбора объема заказа воды - active`);
   }
 }
 
@@ -228,10 +231,189 @@ btnSize[2].onclick = function () {
 };
 
 // подсчет итого
-totalDisplay = document.querySelector(".in__sum-total_ruble")
+totalDisplay = document.querySelector(".in__sum-total_ruble");
 
 function sum() {
   total = 220 * amountNumFirst + 175 * amountNumSecond + 270 * amountNumThird;
-  totalDisplay.textContent = `${total}`
+  totalDisplay.textContent = `${total}`;
 }
 
+// выбор временнного интервала
+const btnTime = document.querySelectorAll(".button-in__time-time");
+
+function displayTime(number) {
+  if (btnTime[number].classList.contains("button-in__time-time_active")) {
+    btnTime[number].classList.remove("button-in__time-time_active");
+    console.log(`кнопка ${number} выбора временнного интервала - passive`);
+  } else {
+    disableTimeAll();
+    btnTime[number].classList.add("button-in__time-time_active");
+    console.log(`кнопка ${number} выбора временнного интервала - active`);
+  }
+}
+
+function disableTimeAll() {
+  for (i = 0; i < 3; i++) {
+    btnTime[i].classList.remove("button-in__time-time_active");
+  }
+}
+
+btnTime[0].onclick = function () {
+  displayTime(0);
+};
+
+btnTime[1].onclick = function () {
+  displayTime(1);
+};
+
+btnTime[2].onclick = function () {
+  displayTime(2);
+};
+
+// заполнение кнопок с днями
+const displayDate = document.querySelectorAll(".button-in__time-day_number");
+const displayWeek = document.querySelectorAll(".button-in__time-day_week");
+
+let dateNow = new Date();
+
+function displayWeekDay(date) {
+  let days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+  return days[date.getDay()];
+}
+
+function displayDateWeek(number) {
+  displayDate[number].textContent = `${dateNow.getDate()}`;
+  displayWeek[number].textContent = `${displayWeekDay(dateNow)}`;
+}
+
+displayDateWeek(0);
+
+for (let i = 1; i < 6; i++) {
+  dateNow.setDate(dateNow.getDate() + 1);
+  displayDateWeek(i);
+}
+
+// смена кнопок с днями
+const btnDayNext = document.querySelector(".button-in__time-day_next");
+const btnDayBefore = document.querySelector(".button-in__time-day_before");
+
+dateNow = new Date();
+
+btnDayNext.onclick = function () {
+  dateNow.setDate(dateNow.getDate() + 1);
+
+  displayDateWeek(0);
+
+  for (let i = 1; i < 6; i++) {
+    dateNow.setDate(dateNow.getDate() + 1);
+    displayDateWeek(i);
+  }
+
+  dateNow.setDate(dateNow.getDate() - 5);
+
+  if (btnDay[numBtnDay].classList.contains("button-in__time-day_active")) {
+    if (numBtnDay == 0) {
+      disableDayAll();
+      disableTimeAll()
+    } else {
+      displayDay(numBtnDay - 1);
+    }
+  }
+};
+
+btnDayBefore.onclick = function () {
+  let dateRightNow = new Date();
+  if (dateNow >= dateRightNow) {
+    dateNow.setDate(dateNow.getDate() - 1);
+    console.log("назад ещё можно");
+    displayDateWeek(0);
+
+    for (let i = 1; i < 6; i++) {
+      dateNow.setDate(dateNow.getDate() + 1);
+      displayDateWeek(i);
+    }
+
+    dateNow.setDate(dateNow.getDate() - 5);
+
+    if (btnDay[numBtnDay].classList.contains("button-in__time-day_active")) {
+      if (numBtnDay == 5) {
+        disableDayAll();
+        disableTimeAll()
+      } else {
+        displayDay(numBtnDay + 1);
+      }
+    }
+  } else {
+    console.log("назад уже нельзя");
+  }
+};
+
+// выбор кнопок с днями
+const btnDay = document.querySelectorAll(".button-in__time-day");
+let numBtnDay = 0;
+let dayOfWeek;
+
+function displayDay(number) {
+  if (btnDay[number].classList.contains("button-in__time-day_active")) {
+    btnDay[number].classList.remove("button-in__time-day_active");
+    console.log(`кнопка ${number} выбора дня - passive`);
+  } else {
+    disableDayAll();
+    btnDay[number].classList.add("button-in__time-day_active");
+    console.log(`кнопка ${number} выбора дня - active`);
+    numBtnDay = number;
+    dateNow.setDate(dateNow.getDate() + number);
+    console.log(
+      `число - ${dateNow.getDate()}, день недели - ${displayWeekDay(dateNow)}`
+    );
+    dayOfWeek = displayWeekDay(dateNow);
+    dateNow.setDate(dateNow.getDate() - number);
+    changeTime();
+  }
+}
+
+function disableDayAll() {
+  for (i = 0; i < 6; i++) {
+    btnDay[i].classList.remove("button-in__time-day_active");
+  }
+}
+
+btnDay[0].onclick = function () {
+  displayDay(0);
+};
+
+btnDay[1].onclick = function () {
+  displayDay(1);
+};
+
+btnDay[2].onclick = function () {
+  displayDay(2);
+};
+
+btnDay[3].onclick = function () {
+  displayDay(3);
+};
+
+btnDay[4].onclick = function () {
+  displayDay(4);
+};
+
+btnDay[5].onclick = function () {
+  displayDay(5);
+};
+
+//смена времени доставки в зависимости от дня
+const timeWeekdays = document.querySelector(".in__time-time_wrapper-weekdays");
+const timeWeekends = document.querySelector(".in__time-time_wrapper-weekends");
+
+function changeTime() {
+  if (dayOfWeek == "сб" || dayOfWeek == "вс") {
+    timeWeekdays.style.display = "none";
+    timeWeekends.style.display = "flex";
+  } else {
+    timeWeekdays.style.display = "flex";
+    timeWeekends.style.display = "none";
+  }
+}
+
+//

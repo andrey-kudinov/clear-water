@@ -794,9 +794,13 @@ img {
 }
 
 .in__time-day_wrapper,
-.in__time-time_wrapper {
+.in__time-time_wrapper-weekdays, .in__time-time_wrapper-weekends {
   display: flex;
   flex-direction: row;
+}
+
+.in__time-time_wrapper-weekends {
+  display: none;
 }
 
 .button-in__time-day {
@@ -846,6 +850,14 @@ img {
   font-size: 12px;
   line-height: 15px;
   margin-right: 9px;
+}
+
+.button-in__time-time_active {
+  background: #ffc369;
+}
+
+.button-in__time-day_active {
+  background: #ffc369;
 }
 
 .in__sum {
