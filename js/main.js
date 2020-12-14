@@ -1,6 +1,6 @@
 input = document.querySelectorAll(".input");
 inputFalse = document.querySelectorAll(".input-user-false");
-let validNameBln, validTelBln, validMailBln, validLocBln;
+let validNameBln, validTelBln, validMailBln, validLocBln, validCheckBln;
 
 // проверка имени
 function validName() {
@@ -13,6 +13,7 @@ function validName() {
   } else {
     console.log("имя ошибка");
     inputFalse[0].style.display = "block";
+    validNameBln = false;
     validBtnOrder();
   }
 }
@@ -72,18 +73,30 @@ function validLoc() {
   if (input[3].value != "" && input[3].value.length > 1) {
     console.log("адрес верно");
     inputFalse[3].style.display = "none";
-    validNameBln = true;
+    validLocBln = true;
     validBtnOrder();
   } else {
     console.log("адрес ошибка");
     inputFalse[3].style.display = "block";
-    validNameBln = false;
+    validLocBln = false;
     validBtnOrder();
   }
 }
 
 input[3].onchange = function () {
   validLoc();
+};
+
+// проверка чекбокса
+document.querySelector(".input-in__user-check").onchange = function () {
+  if (document.querySelector(".input-in__user-check").checked == true) {
+    validCheckBln = true;
+    console.log("согласен на ОПД")
+  } else {
+    validCheckBln = false;
+    console.log("НЕ согласен на ОПД")
+  }
+  validBtnOrder();
 };
 
 // маска телефона
@@ -344,6 +357,7 @@ btnDayNext.onclick = function () {
     if (numBtnDay == 0) {
       disableDayAll();
       disableTimeAll();
+
     } else {
       displayDay(numBtnDay - 1);
     }
@@ -479,12 +493,16 @@ function validBtnOrder() {
     // validNameBln == true &&
     // validMailBln == true &&
     // validTelBln == true &&
-    // validDayBln == true &&
+    // validLocBln == true &&
+    validDayBln == true &&
+    // validCheckBln == true &&
     validTimeBln == true &&
     validTotalBln == true
   ) {
+    btnOrder.disabled = false
     console.log("кнопку можно активировать");
   } else {
+    btnOrder.disabled = true
     console.log("кнопку НЕЛЬЗЯ активировать");
   }
 }
@@ -503,6 +521,13 @@ btnOrder.onclick = function () {
 // вывод заказа
 const orderSubtitle = document.querySelectorAll(".out__order-subtitle");
 const orderValue = document.querySelectorAll(".out__order-value");
+const orderNum = document.querySelector(".out_desc-num")
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+orderNum.textContent = `${getRandomInt(999)}`
 
 function displayOrder() {
   if (amountNumFirst == 0) {

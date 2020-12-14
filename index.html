@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,8 +50,12 @@
             подходит для кулеров. Закажите доставку воды и мы привезем её на дом
             или в офис.
           </div>
+          <button class="button-about__btn-order_mobile button">
+            Заказать воду
+          </button>
         </div>
       </div>
+      <div class="about__wrapper-hidden"></div>
       <div class="main">
         <div class="wrapper">
           <div class="in">
@@ -65,7 +69,9 @@
                       class="input-in__user-name input"
                       placeholder="ФИО"
                     />
-                    <span class="input-user-false">Неверно заполненное поле</span>
+                    <span class="input-user-false"
+                      >Неверно заполненное поле</span
+                    >
                   </div>
                   <div class="in__user-input">
                     <input
@@ -73,10 +79,12 @@
                       class="input-in__user-tel input"
                       placeholder="Телефон"
                     />
-                    <span class="input-user-false">Неверно заполненное поле</span>
+                    <span class="input-user-false"
+                      >Неверно заполненное поле</span
+                    >
                   </div>
                 </div>
-  
+
                 <div class="in__user-inputs_clm2">
                   <div class="in__user-input">
                     <input
@@ -84,20 +92,24 @@
                       class="input-in__user-mail input"
                       placeholder="Почта"
                     />
-                    <span class="input-user-false">Неверно заполненное поле</span>
+                    <span class="input-user-false"
+                      >Неверно заполненное поле</span
+                    >
                   </div>
-  
+
                   <div class="in__user-input">
                     <input
                       type="text"
                       class="input-in__user-loc input"
                       placeholder="Адрес доставки"
                     />
-                    <span class="input-user-false">Неверно заполненное поле</span>
+                    <span class="input-user-false"
+                      >Неверно заполненное поле</span
+                    >
                   </div>
                 </div>
               </div>
-  
+
               <div class="in__user-check">
                 <label>
                   <input
@@ -111,10 +123,17 @@
                   >
                 </label>
               </div>
+              <button
+                class="button-in__user-next_mobile button"
+                disabled="disabled"
+              >
+                Далее
+              </button>
             </div>
-  
+
             <div class="middle__wrapper">
               <div class="in__water">
+                <button class="in__water-back_mobile"></button>
                 <h3 class="in__water-subtitle subtitle">Вода</h3>
                 <div class="in__water-buttons">
                   <div class="wrapper-button-in__water-size">
@@ -131,7 +150,7 @@
                       <button class="button-in__water-amount_plus">+</button>
                     </div>
                   </div>
-  
+
                   <div class="wrapper-button-in__water-size">
                     <button class="button-in__water-size">
                       <span class="btn-size">1,5 л</span>
@@ -146,7 +165,7 @@
                       <button class="button-in__water-amount_plus">+</button>
                     </div>
                   </div>
-  
+
                   <div class="wrapper-button-in__water-size">
                     <button class="button-in__water-size">
                       <span class="btn-size">0,5 л</span>
@@ -163,9 +182,11 @@
                   </div>
                 </div>
               </div>
-  
+
               <div class="in__time">
-                <h3 class="in__time-subtitle subtitle">Дата и время доставки</h3>
+                <h3 class="in__time-subtitle subtitle">
+                  Дата и время доставки
+                </h3>
                 <div class="in__time-wrapper">
                   <div class="in__time-day">
                     <h4 class="in__time-day_subtitle">ДЕНЬ</h4>
@@ -214,23 +235,33 @@
                       </button>
                     </div>
                   </div>
-  
+
                   <div class="in__time-time">
                     <h4 class="in__time-time_subtitle">ВРЕМЯ</h4>
                     <div class="in__time-time_wrapper-weekdays">
-                      <button class="button-in__time-time">10:00 - 11:00</button>
-                      <button class="button-in__time-time">12:00 - 13:00</button>
-                      <button class="button-in__time-time">15:00 - 16:00</button>
+                      <button class="button-in__time-time">
+                        10:00 - 11:00
+                      </button>
+                      <button class="button-in__time-time">
+                        12:00 - 13:00
+                      </button>
+                      <button class="button-in__time-time">
+                        15:00 - 16:00
+                      </button>
                     </div>
                     <div class="in__time-time_wrapper-weekends">
-                      <button class="button-in__time-time">12:00 - 13:00</button>
-                      <button class="button-in__time-time">15:00 - 16:00</button>
+                      <button class="button-in__time-time">
+                        12:00 - 13:00
+                      </button>
+                      <button class="button-in__time-time">
+                        15:00 - 16:00
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-  
+
             <div class="in__sum">
               <div class="in__sum-wrapper">
                 <h3 class="in__sum-subtitle subtitle">Итого</h3>
@@ -239,7 +270,9 @@
                   <span class="in__sum-total_penny">,00 ₽</span>
                 </div>
               </div>
-              <button class="button-in__sum-order button">Заказать воду</button>
+              <button class="button-in__sum-order button" disabled="disabled">
+                Заказать воду
+              </button>
             </div>
           </div>
 
@@ -274,8 +307,17 @@
                 </div>
               </div>
 
-              <div class="out__desc">Ваш заказ <span class="out_desc-num">№221</span> успешно оформлен. В ближайшее время по указанному телефону с Вами свяжется наш менеджер.</div>
-              <button class="button-out__new button" onClick="window.location.reload()">Новый заказ</button>
+              <div class="out__desc">
+                Ваш заказ <span class="out_desc-num">№221</span> успешно
+                оформлен. В ближайшее время по указанному телефону с Вами
+                свяжется наш менеджер.
+              </div>
+              <button
+                class="button-out__new button"
+                onClick="window.location.reload()"
+              >
+                Новый заказ
+              </button>
             </div>
           </div>
         </div>
