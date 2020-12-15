@@ -6,15 +6,17 @@ let validNameBln, validTelBln, validMailBln, validLocBln, validCheckBln;
 function validName() {
   input[0].value = input[0].value.replace(/[^А-Яа-яЁё\s]/g, "");
   if (input[0].value != "" && input[0].value.length > 1) {
-    console.log("имя верно");
+    // console.log("имя верно");
     inputFalse[0].style.display = "none";
     validNameBln = true;
     validBtnOrder();
+    validBtnNext();
   } else {
-    console.log("имя ошибка");
+    // console.log("имя ошибка");
     inputFalse[0].style.display = "block";
     validNameBln = false;
     validBtnOrder();
+    validBtnNext();
   }
 }
 
@@ -24,19 +26,20 @@ input[0].onchange = function () {
 
 // проверка телефона
 function validTel() {
-  console.log(`количество символов в номере ${input[1].value.length}`);
-  console.log(`номер ${input[1].value}`);
-
+  // console.log(`количество символов в номере ${input[1].value.length}`);
+  // console.log(`номер ${input[1].value}`);
   if (input[1].value.length == 22) {
-    console.log("телефон верно");
+    // console.log("телефон верно");
     inputFalse[1].style.display = "none";
     validTelBln = true;
     validBtnOrder();
+    validBtnNext();
   } else {
-    console.log("телефон ошибка");
+    // console.log("телефон ошибка");
     inputFalse[1].style.display = "block";
     validTelBln = false;
     validBtnOrder();
+    validBtnNext();
   }
 }
 
@@ -51,15 +54,17 @@ function validMail() {
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     )
   ) {
-    console.log("почта верно");
+    // console.log("почта верно");
     inputFalse[2].style.display = "none";
     validMailBln = true;
     validBtnOrder();
+    validBtnNext();
   } else {
-    console.log("почта ошибка");
+    // console.log("почта ошибка");
     inputFalse[2].style.display = "block";
     validMailBln = false;
     validBtnOrder();
+    validBtnNext();
   }
 }
 
@@ -70,16 +75,22 @@ input[2].onchange = function () {
 // проверка адреса
 function validLoc() {
   input[3].value = input[3].value.replace(/[^А-Яа-яЁё0-9.,-\s]/g, "");
-  if (input[3].value != "" && input[3].value.length > 1) {
-    console.log("адрес верно");
+  if (
+    input[3].value.match(/[А-Яа-яЁё]/g) &&
+    input[3].value.match(/[0-9.,-\s]/g) &&
+    input[3].value.length > 5
+  ) {
+    // console.log("адрес верно");
     inputFalse[3].style.display = "none";
     validLocBln = true;
     validBtnOrder();
+    validBtnNext();
   } else {
-    console.log("адрес ошибка");
+    // console.log("адрес ошибка");
     inputFalse[3].style.display = "block";
     validLocBln = false;
     validBtnOrder();
+    validBtnNext();
   }
 }
 
@@ -91,12 +102,15 @@ input[3].onchange = function () {
 document.querySelector(".input-in__user-check").onchange = function () {
   if (document.querySelector(".input-in__user-check").checked == true) {
     validCheckBln = true;
-    console.log("согласен на ОПД")
+    // console.log("согласен на ОПД");
+    validBtnOrder();
+    validBtnNext();
   } else {
     validCheckBln = false;
-    console.log("НЕ согласен на ОПД")
+    // console.log("НЕ согласен на ОПД");
+    validBtnOrder();
+    validBtnNext();
   }
-  validBtnOrder();
 };
 
 // маска телефона
@@ -145,7 +159,7 @@ let amountNumFirst = (amountNumSecond = amountNumThird = 0);
 btnPlus[0].onclick = function () {
   amountNumFirst++;
   amountNum[0].textContent = `${amountNumFirst}`;
-  console.log(`количество 18,9 л - ${amountNumFirst} штук`);
+  // console.log(`количество 18,9 л - ${amountNumFirst} штук`);
   sum();
 };
 
@@ -155,14 +169,14 @@ btnMinus[0].onclick = function () {
     amountNumFirst = 0;
   }
   amountNum[0].textContent = `${amountNumFirst}`;
-  console.log(`количество 18,9 л - ${amountNumFirst} штук`);
+  // console.log(`количество 18,9 л - ${amountNumFirst} штук`);
   sum();
 };
 
 btnPlus[1].onclick = function () {
   amountNumSecond++;
   amountNum[1].textContent = `${amountNumSecond}`;
-  console.log(`количество 1,5 л - ${amountNumSecond} штук`);
+  // console.log(`количество 1,5 л - ${amountNumSecond} штук`);
   sum();
 };
 
@@ -172,13 +186,13 @@ btnMinus[1].onclick = function () {
     amountNumSecond = 0;
   }
   amountNum[1].textContent = `${amountNumSecond}`;
-  console.log(`количество 1,5 л - ${amountNumSecond} штук`);
+  // console.log(`количество 1,5 л - ${amountNumSecond} штук`);
   sum();
 };
 btnPlus[2].onclick = function () {
   amountNumThird++;
   amountNum[2].textContent = `${amountNumThird}`;
-  console.log(`количество 0,5 л - ${amountNumThird} штук`);
+  // console.log(`количество 0,5 л - ${amountNumThird} штук`);
   sum();
 };
 
@@ -188,7 +202,7 @@ btnMinus[2].onclick = function () {
     amountNumThird = 0;
   }
   amountNum[2].textContent = `${amountNumThird}`;
-  console.log(`количество 0,5 л - ${amountNumThird} штук`);
+  // console.log(`количество 0,5 л - ${amountNumThird} штук`);
   sum();
 };
 
@@ -220,15 +234,15 @@ function displaySize(number) {
         sum();
         break;
       default:
-        console.log("ошибка в displaySize");
+      // console.log("ошибка в displaySize");
     }
-    console.log(`кнопка ${number} выбора объема заказа воды - passive`);
+    // console.log(`кнопка ${number} выбора объема заказа воды - passive`);
     sum();
   } else {
     sizeActive[number].style.display = "block";
     sizePassive[number].style.display = "none";
-    amountDisplay[number].style.display = "block";
-    console.log(`кнопка ${number} выбора объема заказа воды - active`);
+    amountDisplay[number].style.display = "flex";
+    // console.log(`кнопка ${number} выбора объема заказа воды - active`);
     sum();
   }
 }
@@ -326,6 +340,11 @@ function displayMonth(date) {
 function displayDateWeek(number) {
   displayDate[number].textContent = `${dateNow.getDate()}`;
   displayWeek[number].textContent = `${displayWeekDay(dateNow)}`;
+  if (displayWeekDay(dateNow) == "сб" || displayWeekDay(dateNow) == "вс") {
+    displayWeek[number].style.color = "#FD7562";
+  } else {
+    displayWeek[number].style.color = "#9caedd";
+  }
 }
 
 displayDateWeek(0);
@@ -357,7 +376,6 @@ btnDayNext.onclick = function () {
     if (numBtnDay == 0) {
       disableDayAll();
       disableTimeAll();
-
     } else {
       displayDay(numBtnDay - 1);
     }
@@ -368,7 +386,7 @@ btnDayBefore.onclick = function () {
   let dateRightNow = new Date();
   if (dateNow >= dateRightNow) {
     dateNow.setDate(dateNow.getDate() - 1);
-    console.log("назад ещё можно");
+    // console.log("назад ещё можно");
     displayDateWeek(0);
 
     for (let i = 1; i < 6; i++) {
@@ -387,7 +405,7 @@ btnDayBefore.onclick = function () {
       }
     }
   } else {
-    console.log("назад уже нельзя");
+    // console.log("назад уже нельзя");
   }
 };
 
@@ -402,13 +420,13 @@ let validDayBln;
 function displayDay(number) {
   if (btnDay[number].classList.contains("button-in__time-day_active")) {
     btnDay[number].classList.remove("button-in__time-day_active");
-    console.log(`кнопка ${number} выбора дня - passive`);
+    // console.log(`кнопка ${number} выбора дня - passive`);
     validDayBln = false;
     validBtnOrder();
   } else {
     disableDayAll();
     btnDay[number].classList.add("button-in__time-day_active");
-    console.log(`кнопка ${number} выбора дня - active`);
+    // console.log(`кнопка ${number} выбора дня - active`);
     numBtnDay = number;
     dateNow.setDate(dateNow.getDate() + number);
     console.log(
@@ -417,7 +435,7 @@ function displayDay(number) {
     day = dateNow.getDate();
     month = displayMonth(dateNow);
     dayOfWeek = displayWeekDay(dateNow);
-    console.log(`число - ${day} ${month}, день недели - ${dayOfWeek}`);
+    // console.log(`число - ${day} ${month}, день недели - ${dayOfWeek}`);
     dateNow.setDate(dateNow.getDate() - number);
     changeTime();
     validDayBln = true;
@@ -490,20 +508,20 @@ function sum() {
 // проверка кнопки Заказать
 function validBtnOrder() {
   if (
-    // validNameBln == true &&
-    // validMailBln == true &&
-    // validTelBln == true &&
-    // validLocBln == true &&
+    validNameBln == true &&
+    validMailBln == true &&
+    validTelBln == true &&
+    validLocBln == true &&
+    validCheckBln == true &&
     validDayBln == true &&
-    // validCheckBln == true &&
     validTimeBln == true &&
     validTotalBln == true
   ) {
-    btnOrder.disabled = false
-    console.log("кнопку можно активировать");
+    btnOrder.disabled = false;
+    // console.log("кнопку можно активировать");
   } else {
-    btnOrder.disabled = true
-    console.log("кнопку НЕЛЬЗЯ активировать");
+    btnOrder.disabled = true;
+    // console.log("кнопку НЕЛЬЗЯ активировать");
   }
 }
 
@@ -521,13 +539,13 @@ btnOrder.onclick = function () {
 // вывод заказа
 const orderSubtitle = document.querySelectorAll(".out__order-subtitle");
 const orderValue = document.querySelectorAll(".out__order-value");
-const orderNum = document.querySelector(".out_desc-num")
+const orderNum = document.querySelector(".out_desc-num");
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-orderNum.textContent = `${getRandomInt(999)}`
+orderNum.textContent = `${getRandomInt(999)}`;
 
 function displayOrder() {
   if (amountNumFirst == 0) {
@@ -551,3 +569,42 @@ function displayOrder() {
   orderValue[4].textContent = `${input[3].value}`;
   orderValue[5].textContent = `${input[1].value}`;
 }
+// переходы в мобильной версии
+btnStart = document.querySelector(".button-about__btn-order_mobile");
+btnNext = document.querySelector(".button-in__user-next_mobile");
+btnBack = document.querySelector(".in__water-back_mobile");
+
+btnStart.onclick = function () {
+  document.querySelector(".about").style.display = "none";
+  document.querySelector(".in__title").style.display = "block";
+  document.querySelector(".in__user").style.display = "block";
+};
+
+function validBtnNext() {
+  if (
+    validNameBln == true &&
+    validMailBln == true &&
+    validTelBln == true &&
+    validLocBln == true &&
+    validCheckBln == true
+  ) {
+    btnNext.disabled = false;
+    // console.log("кнопку ДАЛЕЕ можно активировать");
+  } else {
+    btnNext.disabled = true;
+    // console.log("кнопку ДАЛЕЕ НЕЛЬЗЯ активировать");
+  }
+}
+btnNext.onclick = function () {
+  document.querySelector(".in__title").style.display = "none";
+  document.querySelector(".in__user").style.display = "none";
+  document.querySelector(".in__wrap").style.display = "block";
+  document.querySelector(".in__sum").style.display = "block";
+};
+
+btnBack.onclick = function () {
+  document.querySelector(".in__title").style.display = "block";
+  document.querySelector(".in__user").style.display = "block";
+  document.querySelector(".in__wrap").style.display = "none";
+  document.querySelector(".in__sum").style.display = "none";
+};
