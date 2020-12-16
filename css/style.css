@@ -288,6 +288,8 @@ textarea {
   margin: 0; /* 2 */
   vertical-align: baseline; /* 3 */
   *vertical-align: middle; /* 3 */
+  outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /**
@@ -1185,6 +1187,7 @@ img {
   line-height: 18px;
   margin-left: 20px;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .out__order-value {
@@ -1279,7 +1282,7 @@ img {
 }
 
 @media screen and (max-width: 500px) {
-  .page {
+  html, .page {
     background: #f5f8ff;
   }
   .about {
@@ -1395,5 +1398,16 @@ img {
   }
   .in__time {
     width: auto;
+  }
+  .out__order-subtitles {
+    width: 98px;
+  }
+  .out__order-values {
+    width: 138px;
+  }
+  .out__order-subtitle {
+    width: 98px;
+    margin-left: 0;
+    text-align: left;
   }
 }
