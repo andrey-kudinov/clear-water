@@ -267,13 +267,13 @@ let time;
 function displayTime(number) {
   if (btnTime[number].classList.contains("button-in__time-time_active")) {
     btnTime[number].classList.remove("button-in__time-time_active");
-    console.log(`кнопка ${number} выбора временнного интервала - passive`);
+    // console.log(`кнопка ${number} выбора временнного интервала - passive`);
     validTimeBln = false;
     validBtnOrder();
   } else {
     disableTimeAll();
     btnTime[number].classList.add("button-in__time-time_active");
-    console.log(`кнопка ${number} выбора временнного интервала - active`);
+    // console.log(`кнопка ${number} выбора временнного интервала - active`);
     validTimeBln = true;
     time = btnTime[number].textContent;
     validBtnOrder();
@@ -425,13 +425,14 @@ function displayDay(number) {
     validBtnOrder();
   } else {
     disableDayAll();
+    disableTimeAll();
     btnDay[number].classList.add("button-in__time-day_active");
     // console.log(`кнопка ${number} выбора дня - active`);
     numBtnDay = number;
     dateNow.setDate(dateNow.getDate() + number);
-    console.log(
-      `число - ${dateNow.getDate()}, день недели - ${displayWeekDay(dateNow)}`
-    );
+    // console.log(
+    //   `число - ${dateNow.getDate()}, день недели - ${displayWeekDay(dateNow)}`
+    // );
     day = dateNow.getDate();
     month = displayMonth(dateNow);
     dayOfWeek = displayWeekDay(dateNow);
